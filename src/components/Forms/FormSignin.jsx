@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
+import "./../../styles/Form.css"
 
 class FormSignin extends Component {
   state = {
@@ -36,12 +37,20 @@ class FormSignin extends Component {
     }
 
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
+      <form 
+      className="Form"
+      onChange={this.handleChange} 
+      onSubmit={this.handleSubmit}>
+        <div className= "intro">
+          <h2 className="Form__title">Welcome Back !</h2>
+          <p>We've missed you</p>
+        </div>
+          <label htmlFor="email">Email</label><br/>
+          <input type="email" id="email" name="email" /><br/>
+          <label htmlFor="password">Password</label><br/>
+          <input type="password" id="password" name="password" /><br/>
+          <button className="Form__button">Submit</button>
+          <p>Don't have an account yet? <a href="/auth/signin">Signup</a></p>
       </form>
     );
   }

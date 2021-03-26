@@ -1,0 +1,19 @@
+.Form {
+    text-align: center;
+  }
+
+label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 400px;
+  }
+
+.Form__button {
+    margin: 4% 0% 2%;
+}

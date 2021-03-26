@@ -18,3 +18,38 @@ a {
 ul {
   list-style-type: none;
 }
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-card {
+  width: 220px;
+  height: 300px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  padding: 5% 0%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #C70039;
+}
+
+h3 {
+  padding: 5% 0%;
+  text-align: center;
+}
+
+.intro {
+  padding: 3% 0%;
+}
+
+.add-btn {
+  width: 20%;
+  margin-bottom: 5%;
+}
