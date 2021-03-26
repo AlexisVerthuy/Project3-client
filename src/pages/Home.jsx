@@ -9,7 +9,7 @@ class Home extends React.Component {
     };
     componentDidMount() {
       axios
-        .get("http://localhost:4001/api/recipe")
+        .get("http://localhost:4000/api/recipe")
         .then((response) => {
           this.setState({ recipes: response.data });
         })
@@ -22,15 +22,22 @@ class Home extends React.Component {
 
       return (
         <div>
+
+          <div>
           <h1>My food diary</h1>
-          <img class="image-home" src="/images/homeBandeau.jpg" alt="Bandeau"/>
+          <img className="image-home" src="/images/homeBandeau.jpg" alt="Bandeau"/>
+          </div>
+
+          <div className = "cards">
           {this.state.recipes.map((recipe) => (
             <div key={recipe._id}>
-              <p>{recipe.title}</p>
+              <p className = "card-title">{recipe.title}</p>
               <img className= "image-card" src={recipe.picture} alt="" />
               <Link to={`/recipe/${recipe._id}`}>See more !</Link>
             </div>
           ))}
+          </div>
+
         </div>
       );
     }
