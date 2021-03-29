@@ -5,13 +5,17 @@ const Search = (props) => {
   //console.log("this is props", props);
 
   return (
-    <input
-      className="input"
-      type="text"
-      placeholder="Search"
-      value={searchValue}
-      onChange={(event) => handleSearch(event, event.target.value)}
-    />
+    <>
+      <label htmlFor=" searchValue">Search recipe</label>
+      <input
+        className="input"
+        type="text"
+        placeholder="Search"
+        value={searchValue}
+        onChange={(event) => handleSearch(event, event.target.value)}
+      />
+      {/* <button type="submit">Search</button> */}
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./../styles/global.css";
 import Search from "./Search";
 import OneRecipe from "./OneRecipe";
+import RecipeCard from "./RecipeCard";
 
 class Home extends React.Component {
   state = {
@@ -44,16 +45,18 @@ class Home extends React.Component {
           searchValue={this.state.searchValue}
         />
 
-        {/* {this.state.recipes
+        {this.state.recipes
+
           .filter((recipe) =>
             recipe.title
               .toLowerCase()
               .includes(this.state.searchValue.toLowerCase())
           )
+
           .map((recipe, index) => {
-            return <OneRecipe key={index} recipe={recipe} />;
-          })
-          } */}
+            console.log("this is map search bar", recipe);
+            return <RecipeCard />;
+          })}
         <div className="cards">
           {this.state.recipes.map((recipe) => (
             <div key={recipe._id}>
