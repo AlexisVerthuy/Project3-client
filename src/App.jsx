@@ -6,6 +6,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import oneRecipe from "./pages/OneRecipe";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <NavMain />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/recipe/:_id" component={oneRecipe} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/profile" component={Profile} />
