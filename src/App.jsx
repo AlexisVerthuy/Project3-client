@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/recipe/:_id" component={oneRecipe} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/profile/:id" component={Profile} />
       </Switch>
     </div>
   );

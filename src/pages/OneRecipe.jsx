@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class OneRecipe extends React.Component {
   state = {
@@ -60,7 +61,8 @@ class OneRecipe extends React.Component {
           </div>
         </div>
         <div>
-          <button>Update recipe</button>
+        {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
+        <Link to={`/recipe/edit/${this.state.recipe._id}`}><button>Update recipe</button></Link>
           <button>Delete recipe</button>
         </div>
       </div>
