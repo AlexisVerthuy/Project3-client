@@ -54,10 +54,10 @@ class Home extends React.Component {
           )
 
           .map((recipe, index) => {
-            console.log("this is map search bar", recipe);
-            return <RecipeCard />;
+            //console.log("this is map search bar", recipe);
+            return <RecipeCard key={index} recipe={recipe} />;
           })}
-        <div className="cards">
+        {/* <div className="cards">
           {this.state.recipes.map((recipe) => (
             <div key={recipe._id}>
               <p className="card-title">{recipe.title}</p>
@@ -65,7 +65,7 @@ class Home extends React.Component {
               <Link to={`/recipe/${recipe._id}`}>See more !</Link>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     );
   }
