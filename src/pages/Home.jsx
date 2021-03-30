@@ -43,6 +43,11 @@ class Home extends React.Component {
           handleSearch={this.handleSearch}
           searchValue={this.state.searchValue}
         />
+        <div>
+          <br/>
+        <b><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></b>
+        </div>
+
 
         {/* {this.state.recipes
           .filter((recipe) =>
