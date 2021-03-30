@@ -16,12 +16,29 @@ class OneRecipe extends React.Component {
       .then((response) => {
         //console.log("this is my set.state", this.setState);
         this.setState({ recipe: response.data });
-        console.log("this is my recipe", response.data);
+        //console.log("this is my recipe", response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }
+
+  handleDelete = () => {
+    // console.log("this is my id", event);
+    // const toDelete = confirm("Are you sure you want to delete?");
+    // if (toDelete)
+    const id = this.props.match.params._id;
+    const URL = `http://localhost:4000/api/recipe/delete/${id}`;
+
+    axios
+      .delete(URL)
+
+      .then((response) => {
+        console.log("this is props ", this.props);
+        this.props.history.push("/");
+      })
+      .catch((err) => console.log(`Err while deleting character: ${err}`));
+  };
 
   render() {
     if (this.state.recipe === null) {
@@ -37,7 +54,7 @@ class OneRecipe extends React.Component {
           <div>
             <p>Level: {this.state.recipe.level}</p>
             <p>Time: {this.state.recipe.duration}min</p>
-            <button>Add to my shopping list</button>
+
             <button>Add to my week</button>
           </div>
 
@@ -61,8 +78,20 @@ class OneRecipe extends React.Component {
           </div>
         </div>
         <div>
+<<<<<<< HEAD
         <Link to={`/recipe/edit/${this.state.recipe._id}`}>  Edit Recipe</Link>
           <button>Delete recipe</button>
+=======
+          {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
+
+          <button>
+            <Link to={`/recipe/edit/${this.state.recipe._id}`}>
+              Update recipe
+            </Link>
+          </button>
+
+          <button onClick={this.handleDelete}>Delete recipe</button>
+>>>>>>> ffe389cf5af1e89fecdb847f514b5e628c18bb30
         </div>
       </div>
     );
