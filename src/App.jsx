@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import oneRecipe from "./pages/OneRecipe";
+import MyWeek from "./pages/MyWeek";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/recipe/:_id" component={oneRecipe} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/myweek" component={MyWeek} />
         <ProtectedRoute exact path="/profile/:id" component={Profile} />
       </Switch>
     </div>
