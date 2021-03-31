@@ -7,7 +7,7 @@ import apiHandler from "../../api/apiHandler";
 class FormSignup extends Component {
   state = {
     firstName: "",
-    lastName: "",
+    LastName: "",
     email: "",
     password: "",
     avatar: "",
@@ -35,7 +35,7 @@ class FormSignup extends Component {
     formData.append("email", this.state.email);
     formData.append("password", this.state.password);
     formData.append("firstName", this.state.firstName);
-    formData.append("lastName", this.state.LastName);
+    formData.append("LastName", this.state.LastName);
     formData.append("avatar", this.state.avatar);
 
     apiHandler
@@ -70,7 +70,7 @@ class FormSignup extends Component {
             </div>
           )}
           <div className="Form__field">
-            <label htmlFor="email">First Name</label><br />
+            <label htmlFor="firstName">First Name</label><br />
             <input
               id="firstName"
               type="text"
@@ -81,7 +81,7 @@ class FormSignup extends Component {
             />
           </div>
           <div className="Form__field">
-            <label htmlFor="email">Last Name</label><br />
+            <label htmlFor="LastName">Last Name</label><br />
             <input
               id="LastName"
               type="text"

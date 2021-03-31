@@ -1,52 +1,24 @@
-import React from "react";
-import axios from "axios";
+import React, { Component }  from "react";
+import { withUser } from "../components/Auth/withUser";
+import { Link } from "react-router-dom";
 
-class MyProfile extends React.Component {
-  state = {
-    user: null,
-  };
 
-  componentDidMount() {
-    const id = this.props.match.params._id;
-    // console.log("this is the id", this.props.match.params);
+const Profile = (props) => {
+  console.log("props", props);
 
-    axios
-      .get(`http://localhost:4000/api/profile/${id}`)
-      .then((response) => {
-        this.setState({ user: response.data });
-        console.log("this is my account", response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  render() {
-    if (this.state.user === null) {
-      return <div>Loading...</div>;
-    }
-
-    return (
-      <div>
-        <h1>Welcome to your profile!</h1>
-
-        <div>
+  return (
+    <div>
+      <h1>Welcome to your profile!</h1>
+ 
           <div>
-            <p>{this.state.user.avatar}</p>
-            <p>{this.state.user.firstName}</p>
-            <p>{this.state.user.lastName}</p>
-            <button>Update my account</button><br/>
+          <img src={ props.context.user.avatar } alt="Profile picture"/>
+            <p>{ props.context.user.firstName } { props.context.user.LastName }</p>
+            <Link to={`/profile/edit`}><button>Update my account</button></Link><br/>
             <button>Delete my account</button>
           </div>
 
-          <div>
-            <button>Add a recipe</button>          
-          </div>
-      </div>
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-
-export default MyProfile;
+export default withUser(Profile);
