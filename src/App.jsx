@@ -7,12 +7,9 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import oneRecipe from "./pages/OneRecipe";
-<<<<<<< HEAD
 import FormEditRecipe from "./pages/FormEditRecipe";
 import FormCreateRecipe from "./pages/FormCreateRecipe"
-=======
 import axios from "axios"
->>>>>>> ffe389cf5af1e89fecdb847f514b5e628c18bb30
 
 function App() {
   return (

@@ -78,10 +78,6 @@ class OneRecipe extends React.Component {
           </div>
         </div>
         <div>
-<<<<<<< HEAD
-        <Link to={`/recipe/edit/${this.state.recipe._id}`}>  Edit Recipe</Link>
-          <button>Delete recipe</button>
-=======
           {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
 
           <button>
@@ -91,7 +87,6 @@ class OneRecipe extends React.Component {
           </button>
 
           <button onClick={this.handleDelete}>Delete recipe</button>
->>>>>>> ffe389cf5af1e89fecdb847f514b5e628c18bb30
         </div>
       </div>
     );

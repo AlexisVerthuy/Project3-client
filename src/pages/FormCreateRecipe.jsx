@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import FormInsertNewIngredient from '../components/FormInsertNewIngredient';
 
 class FormCreateRecipe extends Component {
     state = {
@@ -7,25 +8,21 @@ class FormCreateRecipe extends Component {
         serving: 0,
         level: "Easy",
         duration: "",
-        ingredients: [{
-            quantity: 0,
-            unit: "",
-            value: "",
-        }],
+        ingredients: [],
         instructions: "",
         creator: "",
         type: "",
     };
 
-    addMoreIngredients = (event) => {
-        event.preventDefault();
-        console.log("clickty click");
-    }
-
     handleChange = (event) => {
         const key = event.target.name;
         this.setState({ [key]: event.target.value });
     };
+
+    AddNewIngredient = (ingredient) => {
+        console.log(ingredient)
+        this.setState({ ingredients: [...this.state.ingredients, ingredient] })
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -43,12 +40,6 @@ class FormCreateRecipe extends Component {
                 type: this.state.type,
             })
             .then((response) => {
-                // this.setState({
-                //   name: "",
-                //   brand: "",
-                //   price: 0,
-                //   image: "",
-                // });
                 this.props.history.push("/");
             })
             .catch((error) => {
@@ -98,63 +89,45 @@ class FormCreateRecipe extends Component {
                     />
                 </div>
                 <div>
-                <label htmlFor="">Ingredients:</label>
-                            <div>
-                                <label htmlFor="">Quantity</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    name="quantity"
-                                    type="number"
-                                    value={this.state.ingredients.quantity}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="">Unit</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    name="unit"
-                                    type="text"
-                                    value={this.state.ingredients.unit}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="">Value</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    name="value"
-                                    type="number"
-                                    value={this.state.ingredients.value}
-                                />
-                            </div>
-                            <button onClick={this.addMoreIngredients}> Add more ingredients</button>
-                        </div>
-                        <div>
-                        <label htmlFor="">instructions</label>
-                        <input className="input_instructions"
-                            onChange={this.handleChange}
-                            name="instructions"
-                            type="text"
-                            value={this.state.instructions}
-                        />
-                    </div>
+                    <label htmlFor="">Ingredients:</label>
                     <div>
-                        <label htmlFor="">Creator</label>
-                        <input
-                            onChange={this.handleChange}
-                            name="creator"
-                            type="text"
-                            value={this.state.creator}
-                        />
+                        {this.state.ingredients.map((ingredient) => (
+                            <div key={ingredient._id}>
+                                <p>
+                                    {ingredient.quantity} {ingredient.unit} {ingredient.value}
+                                </p>
+                            </div>
+                        ))}
                     </div>
-                    <div>
-                        <label htmlFor="">type</label>
-                        <input
-                            onChange={this.handleChange}
-                            name="type"
-                            type="text"
-                            value={this.state.type}
-                        />
-                    </div>
+                    <FormInsertNewIngredient handleClick={this.AddNewIngredient} />
+                </div>
+                <div>
+                    <label htmlFor="">instructions</label>
+                    <input className="input_instructions"
+                        onChange={this.handleChange}
+                        name="instructions"
+                        type="text"
+                        value={this.state.instructions}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="">Creator</label>
+                    <input
+                        onChange={this.handleChange}
+                        name="creator"
+                        type="text"
+                        value={this.state.creator}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="">type</label>
+                    <input
+                        onChange={this.handleChange}
+                        name="type"
+                        type="text"
+                        value={this.state.type}
+                    />
+                </div>
                 <button>Submit</button>
             </form>
         );
