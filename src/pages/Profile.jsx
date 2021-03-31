@@ -1,5 +1,6 @@
 import React, { Component }  from "react";
 import { withUser } from "../components/Auth/withUser";
+import { Link } from "react-router-dom";
 
 
 const Profile = (props) => {
@@ -10,10 +11,9 @@ const Profile = (props) => {
       <h1>Welcome to your profile!</h1>
  
           <div>
-          <p>{ props.context.user.avatar }</p>
-            <p>{ props.context.user.firstName }</p>
-            <p>{ props.context.user.LastName }</p>
-            <button>Update my account</button><br/>
+          <img src={ props.context.user.avatar } alt="Profile picture"/>
+            <p>{ props.context.user.firstName } { props.context.user.LastName }</p>
+            <Link to={`/profile/edit`}><button>Update my account</button></Link><br/>
             <button>Delete my account</button>
           </div>
 
