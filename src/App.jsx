@@ -7,12 +7,10 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import oneRecipe from "./pages/OneRecipe";
-<<<<<<< HEAD
 import FormEditRecipe from "./pages/FormEditRecipe";
 import FormCreateRecipe from "./pages/FormCreateRecipe"
-=======
+import FormEditUser from "./pages/FormEditUser"
 import axios from "axios"
->>>>>>> ffe389cf5af1e89fecdb847f514b5e628c18bb30
 
 function App() {
   return (
@@ -26,6 +24,8 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/profile/edit" component={FormEditUser} />
+
       </Switch>
     </div>
   );
