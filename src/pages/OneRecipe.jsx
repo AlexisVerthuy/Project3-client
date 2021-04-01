@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./../styles/OneRecipe.css"
 
 class OneRecipe extends React.Component {
   state = {
@@ -9,14 +10,11 @@ class OneRecipe extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params._id;
-    // console.log("this is the id", this.props.match.params);
 
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/api/recipe/${id}`)
       .then((response) => {
-        //console.log("this is my set.state", this.setState);
         this.setState({ recipe: response.data });
-        //console.log("this is my recipe", response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -24,9 +22,6 @@ class OneRecipe extends React.Component {
   }
 
   handleDelete = () => {
-    // console.log("this is my id", event);
-    // const toDelete = confirm("Are you sure you want to delete?");
-    // if (toDelete)
     const id = this.props.match.params._id;
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipe/delete/${id}`;
 
@@ -47,46 +42,48 @@ class OneRecipe extends React.Component {
 
     return (
       <div className="container">
-        <h1>Welcome to recipe detail</h1>
-        <h1>{this.state.recipe.title}</h1>
+        <h2>{this.state.recipe.title}</h2>
 
-        <div className="Recipe-intro">
-          <div>
-            <p>Level: {this.state.recipe.level}</p>
-            <p>Time: {this.state.recipe.duration}min</p>
-
-            <button>Add to my week</button>
+        <div className="recipe-intro">
+          <div className="level">
+            <p><b>Level</b>: {this.state.recipe.level}</p>
+            <p><b>Time</b>: {this.state.recipe.duration}min</p>
           </div>
 
           <div>
-            <img src={this.state.recipe.picture} alt="dish" />
+            <img className="recipe-img" src={this.state.recipe.picture} alt="dish" />
           </div>
         </div>
-        <div className="Recipe-content">
-          <div>
-            <p>{this.state.recipe.instructions}</p>
-          </div>
 
-          <div>
+        <div className="recipe-content">
+          <div className="ingredients-box">
             {this.state.recipe.ingredients.map((ingredient) => (
               <div key={ingredient._id}>
-                <p>
+                <ul>
+                <li>
                   {ingredient.quantity} {ingredient.unit} {ingredient.value}
-                </p>
+                </li>
+                </ul>
               </div>
             ))}
           </div>
+          <div className="instructions-box">
+          <ul>
+            <li>
+              {this.state.recipe.instructions}
+            </li>
+          </ul>
+          </div>
         </div>
         <div>
-          {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
 
-          <button>
+          <button className="btn">
             <Link to={`/recipe/edit/${this.state.recipe._id}`}>
               Update recipe
             </Link>
           </button>
 
-          <button onClick={this.handleDelete}>Delete recipe</button>
+          <button className="btn" onClick={this.handleDelete}>Delete recipe</button>
         </div>
       </div>
     );

@@ -1,19 +1,37 @@
-.Form {
+/* .Form {
     text-align: center;
-  }
-
-label {
-    width: 110px;
-    display: inline-block;
-    vertical-align: top;
-    margin: 6px;
-    font-weight: bold;
+    margin-bottom: 5%;
   }
 
   input, textarea {
     width: 400px;
   }
 
-.Form__button {
-    margin: 4% 0% 2%;
-}
+  .form-background {
+    background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2F2016%2F08%2Fmain%2F1609p36-silky-tomato-soup-with-white-beans-garlic-oil_0.jpg%3Fitok%3DZYk0xhRV&q=85");
+    background-position:0 0.;
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:500px;
+    width: 80%;
+    margin: 0% 10% 1% 10%;
+    position:relative;
+    z-index:10;
+    color: black;
+  }
+
+  .form-input {
+    padding: 10% 0%;
+    height:400px;
+    font-size: 18px;
+  }
+
+  label {
+    color: black;
+    font-weight: bold;
+  }
+
+  button {
+    margin-top: 3%;
+  } */
+

@@ -14,7 +14,6 @@ class Home extends React.Component {
 
   handleSearch = (_, value) => {
     this.setState({ searchValue: value });
-    //console.log("this is my set state", this.setState);
   };
 
   componentDidMount() {
@@ -33,7 +32,6 @@ class Home extends React.Component {
       <div>
         <div>
           <h1>My food diary</h1>
-
           <img
             className="image-home"
             src="/images/homeBandeau.jpg"
@@ -46,10 +44,10 @@ class Home extends React.Component {
         />
         <div>
           <br/>
-        <b><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></b>
+        <button className="btn" id="add-home"><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></button>
         </div>
 
-
+        <div className="cards">
         {this.state.recipes
 
           .filter((recipe) =>
@@ -59,18 +57,9 @@ class Home extends React.Component {
           )
 
           .map((recipe, index) => {
-            //console.log("this is map search bar", recipe);
             return <RecipeCard key={index} recipe={recipe} />;
           })}
-        {/* <div className="cards">
-          {this.state.recipes.map((recipe) => (
-            <div key={recipe._id}>
-              <p className="card-title">{recipe.title}</p>
-              <img className="image-card" src={recipe.picture} alt="" />
-              <Link to={`/recipe/${recipe._id}`}>See more !</Link>
-            </div>
-          ))}
-        </div> */}
+          </div>
       </div>
     );
   }

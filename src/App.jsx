@@ -8,10 +8,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import OneRecipe from "./pages/OneRecipe";
 import FormEditRecipe from "./pages/FormEditRecipe";
-import FormCreateRecipe from "./pages/FormCreateRecipe"
+import FormCreateRecipe from "./pages/FormCreateRecipe";
 import MyWeek from "./pages/MyWeek";
 import FormEditUser from "./pages/FormEditUser";
-
 
 function App() {
   return (
