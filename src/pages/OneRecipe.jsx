@@ -54,8 +54,6 @@ class OneRecipe extends React.Component {
           <div>
             <p>Level: {this.state.recipe.level}</p>
             <p>Time: {this.state.recipe.duration}min</p>
-
-            <button>Add to my week</button>
           </div>
 
           <div>
