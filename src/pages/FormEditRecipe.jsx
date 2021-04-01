@@ -1,93 +1,92 @@
 import axios from "axios";
 import React from "react";
-// import "../styles/global.css";
 import "../styles/AddRecipe.css"
 import { Link } from "react-router-dom";
-import FormInsertNewIngredient from '../components/FormInsertNewIngredient';
+import FormInsertNewIngredient from "../components/FormInsertNewIngredient";
 
 class FormEditRecipe extends React.Component {
-    state = {
-        title: "",
-        serving: 0,
-        level: "",
-        duration: "",
-        ingredients: [{
-            quantity: 0,
-            unit: "",
-            value: "",
-        }],
-        instructions: "",
-        creator: "",
-        type: "",
-    };
+  state = {
+    title: "",
+    serving: 0,
+    level: "",
+    duration: "",
+    ingredients: [
+      {
+        quantity: 0,
+        unit: "",
+        value: "",
+      },
+    ],
+    instructions: "",
+    creator: "",
+    type: "",
+  };
 
+  componentDidMount() {
+    console.log(this.props);
 
-    componentDidMount() {
-        console.log(this.props);
+    const id = this.props.match.params._id;
 
-        const id = this.props.match.params._id;
+    axios
+      .get(`http://localhost:4000/api/recipe/${id}`)
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        this.setState({
+          title: data.title,
+          serving: data.serving,
+          level: data.level,
+          duration: data.duration,
+          ingredients: data.ingredients,
+          instructions: data.instructions,
+          creator: data.creator,
+          type: data.type,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-        axios
-            .get(`http://localhost:4000/api/recipe/${id}`)
-            .then((response) => {
-                const data = response.data;
-                console.log(data)
-                this.setState({
-                    title: data.title,
-                    serving: data.serving,
-                    level: data.level,
-                    duration: data.duration,
-                    ingredients: data.ingredients,
-                    instructions: data.instructions,
-                    creator: data.creator,
-                    type: data.type,
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const id = this.props.match.params._id;
+    console.log(this.props.match);
+    axios
+      .patch(`http://localhost:4000/api/recipe/edit/${id}`, {
+        title: this.state.title,
+        serving: this.state.serving,
+        level: this.state.level,
+        duration: this.state.duration,
+        ingredients: this.state.ingredients,
+        instructions: this.state.instructions,
+        creator: this.state.creator,
+        type: this.state.type,
+      })
+      .then((response) => {
+        this.props.history.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const id = this.props.match.params._id;
-        console.log(this.props.match)
-        axios
-            .patch(`http://localhost:4000/api/recipe/edit/${id}`, {
-                title: this.state.title,
-                serving: this.state.serving,
-                level: this.state.level,
-                duration: this.state.duration,
-                ingredients: this.state.ingredients,
-                instructions: this.state.instructions,
-                creator: this.state.creator,
-                type: this.state.type,
-            })
-            .then((response) => {
-                this.props.history.push("/");
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
-    handleChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
-    };
+  handleIngredientChange = (event) => {
+    const newIngredient = this.state.ingredients;
+    newIngredient[event.target.id][event.target.name] = event.target.value;
+    console.log(event.target);
+    this.setState({ ingredients: newIngredient });
+  };
 
-    handleIngredientChange = (event) => {
-
-        const newIngredient = this.state.ingredients
-        newIngredient[event.target.id][event.target.name] = event.target.value
-        console.log(event.target)
-        this.setState({ ingredients: newIngredient });
-    }
-
-    AddNewIngredient = (ingredient) => {
-        console.log(ingredient)
-        this.setState({ ingredients: [...this.state.ingredients, ingredient] })
-    }
+  AddNewIngredient = (ingredient) => {
+    console.log(ingredient);
+    this.setState({ ingredients: [...this.state.ingredients, ingredient] });
+  };
 
     render() {
         return (
@@ -206,8 +205,8 @@ class FormEditRecipe extends React.Component {
                 </form>
             </div>
             </div>
-        );
-    }
+    );
+  }
 }
 
 export default FormEditRecipe;

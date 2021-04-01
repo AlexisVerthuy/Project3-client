@@ -10,14 +10,11 @@ class OneRecipe extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params._id;
-    // console.log("this is the id", this.props.match.params);
 
     axios
       .get(`http://localhost:4000/api/recipe/${id}`)
       .then((response) => {
-        //console.log("this is my set.state", this.setState);
         this.setState({ recipe: response.data });
-        //console.log("this is my recipe", response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -25,9 +22,6 @@ class OneRecipe extends React.Component {
   }
 
   handleDelete = () => {
-    // console.log("this is my id", event);
-    // const toDelete = confirm("Are you sure you want to delete?");
-    // if (toDelete)
     const id = this.props.match.params._id;
     const URL = `http://localhost:4000/api/recipe/delete/${id}`;
 
@@ -54,7 +48,6 @@ class OneRecipe extends React.Component {
           <div className="level">
             <p><b>Level</b>: {this.state.recipe.level}</p>
             <p><b>Time</b>: {this.state.recipe.duration}min</p>
-            <button className="btn">Add to my week</button>
           </div>
 
           <div>
@@ -83,7 +76,6 @@ class OneRecipe extends React.Component {
           </div>
         </div>
         <div>
-          {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
 
           <button className="btn">
             <Link to={`/recipe/edit/${this.state.recipe._id}`}>

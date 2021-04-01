@@ -4,8 +4,8 @@ import "./../styles/FormSignUp.css"
 class FormInsertNewIngredient extends React.Component {
   state = {
     quantity: 0,
-    unit: '',
-    value: '',
+    unit: "",
+    value: "",
     isDisplayed: false,
   };
 
@@ -16,12 +16,11 @@ class FormInsertNewIngredient extends React.Component {
   };
 
   handleChange = (event) => {
-    const {name, value} = event.target
-    this.setState({ 
+    const { name, value } = event.target;
+    this.setState({
       [name]: value,
-     });
+    });
   };
-
 
   render() {
     return (

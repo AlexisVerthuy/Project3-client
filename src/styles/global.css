@@ -136,3 +136,11 @@ h3 {
 .btn-more:hover{
   background-color:lightpink;
 }
+
+.weekBtn {
+  color:#C70039;
+  font-weight: bold;
+  background-color:#FFFFFF;
+  text-align:center;
+  border: none;
+}
