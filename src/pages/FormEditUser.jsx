@@ -17,7 +17,7 @@ class FormEditUser extends React.Component {
     const id = this.props.match.params.id;
 
     axios
-      .get(`http://localhost:4000/api/user/profile`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/user/profile`, { withCredentials: true })
       .then((response) => {
         const data = response.data;
         console.log(data)
@@ -44,7 +44,7 @@ class FormEditUser extends React.Component {
     //  const id = this.props.match.params.id;
     console.log("user")
     axios
-      .patch(`http://localhost:4000/api/user/edit`, {
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/api/user/edit`, {
         firstName: this.state.firstName,
         LastName: this.state.LastName,
         email: this.state.email,

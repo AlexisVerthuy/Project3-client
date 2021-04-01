@@ -18,13 +18,13 @@ function App() {
     <div className="App">
       <NavMain />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/recipe/create" component={FormCreateRecipe} />
-        <Route exact path="/recipe/:_id" component={OneRecipe} />
-        <Route exact path="/recipe/edit/:_id" component={FormEditRecipe} />
+        <ProtectedRoute exact path="/" component={Home} />
+        <ProtectedRoute exact path="/recipe/create" component={FormCreateRecipe} />
+        <ProtectedRoute exact path="/recipe/:_id" component={OneRecipe} />
+        <ProtectedRoute exact path="/recipe/edit/:_id" component={FormEditRecipe} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/myweek" component={MyWeek} />
+        <ProtectedRoute exact path="/myweek" component={MyWeek} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/profile/edit" component={FormEditUser} />
       </Switch>

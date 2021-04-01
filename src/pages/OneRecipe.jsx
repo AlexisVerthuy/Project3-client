@@ -12,7 +12,7 @@ class OneRecipe extends React.Component {
     // console.log("this is the id", this.props.match.params);
 
     axios
-      .get(`http://localhost:4000/api/recipe/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/recipe/${id}`)
       .then((response) => {
         //console.log("this is my set.state", this.setState);
         this.setState({ recipe: response.data });
@@ -28,7 +28,7 @@ class OneRecipe extends React.Component {
     // const toDelete = confirm("Are you sure you want to delete?");
     // if (toDelete)
     const id = this.props.match.params._id;
-    const URL = `http://localhost:4000/api/recipe/delete/${id}`;
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipe/delete/${id}`;
 
     axios
       .delete(URL)

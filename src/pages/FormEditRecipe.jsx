@@ -27,7 +27,7 @@ class FormEditRecipe extends React.Component {
         const id = this.props.match.params._id;
 
         axios
-            .get(`http://localhost:4000/api/recipe/${id}`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/recipe/${id}`)
             .then((response) => {
                 const data = response.data;
                 console.log(data)
@@ -52,7 +52,7 @@ class FormEditRecipe extends React.Component {
         const id = this.props.match.params._id;
         console.log(this.props.match)
         axios
-            .patch(`http://localhost:4000/api/recipe/edit/${id}`, {
+            .patch(`${process.env.REACT_APP_BACKEND_URL}/api/recipe/edit/${id}`, {
                 title: this.state.title,
                 serving: this.state.serving,
                 level: this.state.level,

@@ -29,7 +29,7 @@ class FormCreateRecipe extends Component {
         console.log("clickty click");
 
         axios
-            .post("http://localhost:4000/api/recipe/create", {
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/recipe/create`, {
                 title: this.state.title,
                 serving: this.state.serving,
                 level: this.state.level,
