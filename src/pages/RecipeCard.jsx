@@ -8,12 +8,34 @@ class RecipeCard extends React.Component {
   state = {
     recipe: [],
     isDisplayed: false,
+    day: "monday",
   };
 
   toggleList = () => {
     this.setState({
       isDisplayed: !this.state.isDisplayed,
     });
+  };
+
+  handleChange = (event) => {
+    console.log(event.target.value);
+    this.setState({ day: event.target.value });
+  };
+
+  handleAddMealPlan = () => {
+    console.log(this.state.day, this.props.recipe._id);
+    axios
+      .patch(
+        process.env.REACT_APP_BACKEND_URL + "/api/user/weekplan",
+        {
+          day: this.state.day,
+          recipeId: this.props.recipe._id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   render() {
@@ -36,8 +58,9 @@ class RecipeCard extends React.Component {
               <div>
                 <label htmlFor="weekMeal">My Week Meal</label>
                 <select
-                  // onChange={this.handleChange}
-                  name="weekMeal"
+                  value={this.state.day}
+                  onChange={this.handleChange}
+                  name="day"
                   id="weekMeal"
                 >
                   <option value="monday">Monday</option>
@@ -49,23 +72,15 @@ class RecipeCard extends React.Component {
                   <option value="sunday">Sunday</option>
                 </select>
                 <button
-                  type="button"
-                  onClick={() => {
-                    console.log("clickd");
-                    this.props.AddToMyWeekMeal({
-                      monday: this.props.recipe._id,
-                      // {monday:["123hytreinhd"]}
-                      // tuesday: this.props.recipe._id,
-                      // wednesday: this.props.recipe._id,
-                      // thursday: this.props.recipe._id,,
-                      // friday: this.props.recipe._id,,
-                      // saturday: this.props.recipe._id,,
-                      // sunday: this.props.recipe._id,,
-                    });
-                    // this.props.AddToMyWeekMealTuesday({
-                    //   tuesday: this.props.recipe._id,
-                    // });
-                  }}
+                  onClick={this.handleAddMealPlan}
+                  // type="button"
+                  // onClick={() => {
+                  //   console.log("clickd");
+                  //   this.props.AddToMyWeekMeal({
+                  //     monday: this.props.recipe._id,
+                  //     //{monday:["123hytreinhd"]}
+                  //   });
+                  // }}
                 >
                   Add
                 </button>

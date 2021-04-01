@@ -10,15 +10,6 @@ class Home extends React.Component {
   state = {
     recipes: [],
     searchValue: "",
-    weekMeal: {
-      monday: [],
-      // tuesday: [],
-      // wednesday: [],
-      // thursday: [],
-      // friday: [],
-      // saturday: [],
-      // sunday: [],
-    },
   };
 
   handleSearch = (_, value) => {
@@ -26,48 +17,83 @@ class Home extends React.Component {
     //console.log("this is my set state", this.setState);
   };
   // {monday:["123hytreinhd"]}
-  AddToMyWeekMeal = (meals) => {
-    console.log("this is meals", meals);
-    const mondayArray = [...this.state.weekMeal.monday];
-    mondayArray.push(meals.monday);
-
-    this.setState({
-      weekMeal: {
-        monday: mondayArray,
-      },
-    });
-  };
-
-  // AddToMyWeekMeal = (event) => {
-  //   const weekArray = [...this.state.weekMeal[].];
-  //   tuesdayArray.push(event.tuesday);
+  // AddToMyWeekMeal = (meals) => {
+  //   //console.log("this is meals", meals);
+  //   const mondayArray = [...this.state.weekMeal.monday];
+  //   mondayArray.push(meals.monday);
 
   //   this.setState({
   //     weekMeal: {
-  //       tuesday: tuesdayArray,
+  //       monday: mondayArray,
   //     },
   //   });
   // };
-  // AddToMyWeekMeal = (event,meals) => {
-  //   const {name,value}= [...this.state.weekMeal.monday];
-  //   mondayArray.push(meals.monday);
+
+  // AddToMyWeekMeal = (meals) => {
+  //   const mondayArray = [...this.state.weekMeal.monday];
+  //   // const tuesdayArray = [...this.state.weekMeal.tuesday];
+  //   // const wednesdayArray = [...this.state.weekMeal.wednesday];
+  //   // const thursdayArray = [...this.state.weekMeal.thursday];
+  //   // const fridayArray = [...this.state.weekMeal.friday];
+  //   // const saturdayArray = [...this.state.weekMeal.saturday];
+  //   // const sundayArray = [...this.state.weekMeal.sunday];
+  //   //mondayArray.push(meals.monday);
+  //   // tuesdayArray.push(meals.tuesday);
+  //   // wednesdayArray.push(meals.wednesday);
+  //   // thursdayArray.push(meals.thursday);
+  //   // fridayArray.push(meals.friday);
+  //   // saturdayArray.push(meals.saturday);
+  //   // sundayArray.push(meals.sunday);
+
+  //   this.setState({
+  //     weekMeal: {
+  //       monday: this.state.mondayArray,
+  //       // tuesday: tuesdayArray,
+  //       // wednesday: wednesdayArray,
+  //       // thursday: thursdayArray,
+  //       // friday: fridayArray,
+  //       // saturday: saturdayArray,
+  //       // sunday: sundayArray,
+  //     },
+  //   });
+  // };
+  // AddToMyWeekMeal = (meals) => {
+
+  // let value;
+  //const weekArray = [...this.state.weekMeal.value]
+
+  //   const {name,value}= [...this.state.weekMeal.value;
+  //   mondayArray.push(meals.[day]);
 
   //   //console.log(meals);
   //   //console.log("this is meals", meals);
   //   //console.log("this is state,", this.state);
+
+  // const name = event.target.value
   //   this.setState({
   //     weekMeal: {
-  //       monday: mondayArray,
+  //       [name]: value,
   //     },
   //   });
   //   // this.setState({ weekMeal: { ...this.state.weekMeal, meals } });
   //   //console.log("this.props.", this.props.match.params);
   // };
   componentDidUpdate() {
+    const id = this.props.match.params._id;
+    console.log("this is id", this.props.match.params);
     axios
-      .patch(`http://localhost:4000/api/user/weekplan`, this.state.weekMeal, {
-        withCredentials: true,
-      })
+      .patch(
+        `http://localhost:4000/api/user/weekplan`,
+
+        {
+          day: this.state.day,
+
+          /*recipeId: this.state.recipes._id */
+        },
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         console.log(response);
       })
@@ -88,7 +114,7 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log("this is new state,", this.state);
+    // console.log("this is new state,", this.state);
     return (
       <div>
         <div>
@@ -121,26 +147,9 @@ class Home extends React.Component {
 
             .map((recipe, index) => {
               //console.log("this is map search bar", recipe);
-              return (
-                <RecipeCard
-                  key={index}
-                  recipe={recipe}
-                  AddToMyWeekMeal={this.AddToMyWeekMeal}
-
-                  //handleAdd={this.state.handleAdd}
-                />
-              );
+              return <RecipeCard key={index} recipe={recipe} />;
             })}
         </div>
-        {/* <div className="cards">
-          {this.state.recipes.map((recipe) => (
-            <div key={recipe._id}>
-              <p className="card-title">{recipe.title}</p>
-              <img className="image-card" src={recipe.picture} alt="" />
-              <Link to={`/recipe/${recipe._id}`}>See more !</Link>
-            </div>
-          ))}
-        </div> */}
       </div>
     );
   }
