@@ -49,7 +49,7 @@ class Home extends React.Component {
         <b><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></b>
         </div>
 
-
+        <div className="searchBar">
         {this.state.recipes
 
           .filter((recipe) =>
@@ -62,6 +62,7 @@ class Home extends React.Component {
             //console.log("this is map search bar", recipe);
             return <RecipeCard key={index} recipe={recipe} />;
           })}
+          </div>
         {/* <div className="cards">
           {this.state.recipes.map((recipe) => (
             <div key={recipe._id}>
