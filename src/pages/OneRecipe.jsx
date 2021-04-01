@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./../styles/OneRecipe.css"
 
 class OneRecipe extends React.Component {
   state = {
@@ -47,7 +48,6 @@ class OneRecipe extends React.Component {
 
     return (
       <div className="container">
-        <h1>Welcome to recipe detail</h1>
         <h1>{this.state.recipe.title}</h1>
 
         <div className="Recipe-intro">
@@ -57,7 +57,7 @@ class OneRecipe extends React.Component {
           </div>
 
           <div>
-            <img src={this.state.recipe.picture} alt="dish" />
+            <img className="recipe-img" src={this.state.recipe.picture} alt="dish" />
           </div>
         </div>
         <div className="Recipe-content">
@@ -78,13 +78,13 @@ class OneRecipe extends React.Component {
         <div>
           {/* <Link to={`/toto/${oneToto._id}/edit`}>Edit</Link> */}
 
-          <button>
+          <button className="btn">
             <Link to={`/recipe/edit/${this.state.recipe._id}`}>
               Update recipe
             </Link>
           </button>
 
-          <button onClick={this.handleDelete}>Delete recipe</button>
+          <button className="btn" onClick={this.handleDelete}>Delete recipe</button>
         </div>
       </div>
     );

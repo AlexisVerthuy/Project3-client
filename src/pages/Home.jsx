@@ -110,26 +110,28 @@ class Home extends React.Component {
           </b>
         </div>
 
-        {this.state.recipes
+        <div className="searchBar">
+          {this.state.recipes
 
-          .filter((recipe) =>
-            recipe.title
-              .toLowerCase()
-              .includes(this.state.searchValue.toLowerCase())
-          )
+            .filter((recipe) =>
+              recipe.title
+                .toLowerCase()
+                .includes(this.state.searchValue.toLowerCase())
+            )
 
-          .map((recipe, index) => {
-            //console.log("this is map search bar", recipe);
-            return (
-              <RecipeCard
-                key={index}
-                recipe={recipe}
-                AddToMyWeekMeal={this.AddToMyWeekMeal}
-                AddToMyWeekMealTuesday={this.AddToMyWeekMealTuesday}
-                //handleAdd={this.state.handleAdd}
-              />
-            );
-          })}
+            .map((recipe, index) => {
+              //console.log("this is map search bar", recipe);
+              return (
+                <RecipeCard
+                  key={index}
+                  recipe={recipe}
+                  AddToMyWeekMeal={this.AddToMyWeekMeal}
+
+                  //handleAdd={this.state.handleAdd}
+                />
+              );
+            })}
+        </div>
         {/* <div className="cards">
           {this.state.recipes.map((recipe) => (
             <div key={recipe._id}>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
-import "../../styles/Form.css"
+import "../../styles/FormSignUp.css"
 import apiHandler from "../../api/apiHandler";
 
 class FormSignup extends Component {
@@ -54,79 +54,89 @@ class FormSignup extends Component {
     }
 
     return (
+      <div>
+        
+        <div className="intro">
+        <h1 > JOIN US!</h1>
+        <p>Create an account for free</p>
+      </div>
+
       <form
-        className="Form"
+        className="Form-edit"
         onSubmit={this.handleSubmit}
         enctype="multipart/form-data"
-      >
-        <div className="intro">
-          <h2 className="Form__title">JOIN US!</h2>
-          <p>Create an account for free</p>
-        </div>
-        <div className="formBox">
-          {this.state.message && (
-            <div>
-              <p>{this.state.message}</p>
-            </div>
-          )}
-          <div className="Form__field">
-            <label htmlFor="firstName">First Name</label><br />
-            <input
-              id="firstName"
-              type="text"
-              name="firstName"
-              autoComplete="off"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="Form__field">
+      >        
+          <div>
+            {this.state.message && (
+              <div>
+                <p>{this.state.message}</p>
+              </div>
+            )}
+        <ul>
+          <li>
+            <label htmlFor="firstName">First Name</label>
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                autoComplete="off"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+            <span>Enter your first name here</span>
+          </li>
+          <li>
             <label htmlFor="LastName">Last Name</label><br />
-            <input
-              id="LastName"
-              type="text"
-              name="LastName"
-              autoComplete="off"
-              value={this.state.LastName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="Form__field">
+                <input
+                  id="LastName"
+                  type="text"
+                  name="LastName"
+                  autoComplete="off"
+                  value={this.state.LastName}
+                  onChange={this.handleChange}
+              />
+            <span>Enter your last name here</span>
+          </li>
+          <li>
             <label htmlFor="email">Email</label><br />
-            <input
-              id="email"
-              type="email"
-              name="email"
-              autoComplete="off"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="Form__field">
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autoComplete="off"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+            <span>Enter your email here</span>
+          </li>
+          <li>
             <label htmlFor="password">Password</label><br />
-            <input
-              id="password"
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="Form__field">
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+            <span>Create a new password here</span>
+          </li>
+          <li>
             <label htmlFor="avatar">Avatar</label><br />
-            <input
-              name="avatar"
-              id="avatar"
-              type="file"
-              onChange={this.handleImage}
-            />
-          </div>
+                <input
+                  name="avatar"
+                  id="avatar"
+                  type="file"
+                  onChange={this.handleImage}
+                />
+          </li>
+          <li>
+          <button className="btn">Submit</button>
+          </li>
+        </ul>
         </div>
-        <div>
-          <button className="Form__button">Submit</button>
-        </div>
-        <p> Already have an account? <a href="/auth/signup">Signin</a></p>
+        <p> <b>Already have an account? </b><a href="/auth/signup">Signin</a></p>
       </form>
+      </div>
     );
   }
 }

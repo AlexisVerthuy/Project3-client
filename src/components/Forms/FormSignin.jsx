@@ -35,23 +35,38 @@ class FormSignin extends Component {
     if (this.props.context.user) {
       return <Redirect to="/" />;
     }
-
     return (
+      <div>
+        
+        <div className="intro">
+        <h1 > Welcome Back !</h1>
+        <p>We've missed you</p>
+      </div>
+
       <form 
-      className="Form"
+      className="Form-edit"
       onChange={this.handleChange} 
       onSubmit={this.handleSubmit}>
-        <div className= "intro">
-          <h2 className="Form__title">Welcome Back !</h2>
-          <p>We've missed you</p>
-        </div>
-          <label htmlFor="email">Email</label><br/>
-          <input type="email" id="email" name="email" /><br/>
-          <label htmlFor="password">Password</label><br/>
-          <input type="password" id="password" name="password" /><br/>
-          <button className="Form__button">Submit</button>
-          <p>Don't have an account yet? <a href="/auth/signin">Signup</a></p>
+
+          <ul>
+            <li>
+              <label htmlFor="email">Email</label><br/>
+                <input type="email" id="email" name="email" />
+                <span>Enter your email here</span>
+            </li>
+            <li>
+              <label htmlFor="password">Password</label><br/>
+                <input type="password" id="password" name="password"/>
+                <span>Enter your password here</span>
+
+            </li>
+            <li>
+              <button className="btn">Submit</button>
+            </li>
+          </ul>
+          <p><b>Don't have an account yet? </b><a href="/auth/signin">Signup</a></p>
       </form>
+      </div>
     );
   }
 }
