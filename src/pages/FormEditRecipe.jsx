@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import "../styles/global.css";
 import { Link } from "react-router-dom";
+import FormInsertNewIngredient from '../components/FormInsertNewIngredient';
 
 class FormEditRecipe extends React.Component {
     state = {
@@ -76,10 +77,15 @@ class FormEditRecipe extends React.Component {
 
     handleIngredientChange = (event) => {
 
-        const newIngredient = this.state.ingredients 
-        newIngredient[event.target.id][event.target.name] = event.target.value 
+        const newIngredient = this.state.ingredients
+        newIngredient[event.target.id][event.target.name] = event.target.value
         console.log(event.target)
-        this.setState({ingredients: newIngredient});
+        this.setState({ ingredients: newIngredient });
+    }
+
+    AddNewIngredient = (ingredient) => {
+        console.log(ingredient)
+        this.setState({ ingredients: [...this.state.ingredients, ingredient] })
     }
 
     render() {
@@ -122,8 +128,10 @@ class FormEditRecipe extends React.Component {
                             value={this.state.duration}
                         />
                     </div>
+                    <p>Ingredients:</p>
                     {this.state.ingredients.map((ingredient, index) => (
                         <div key={ingredient._id}>
+                            
                             <div>
                                 <label htmlFor="quantity">Quantity</label>
                                 <input
@@ -156,6 +164,7 @@ class FormEditRecipe extends React.Component {
                             </div>
                         </div>
                     ))}
+                    <FormInsertNewIngredient  handleClick={this.AddNewIngredient}/>
                     <div>
                         <label htmlFor="instructions">instructions</label>
                         <input className="input_instructions"

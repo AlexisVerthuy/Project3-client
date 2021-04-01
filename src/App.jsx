@@ -6,11 +6,12 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
-import oneRecipe from "./pages/OneRecipe";
+import OneRecipe from "./pages/OneRecipe";
 import FormEditRecipe from "./pages/FormEditRecipe";
 import FormCreateRecipe from "./pages/FormCreateRecipe"
-import FormEditUser from "./pages/FormEditUser"
-import axios from "axios"
+import MyWeek from "./pages/MyWeek";
+import FormEditUser from "./pages/FormEditUser";
+
 
 function App() {
   return (
@@ -19,71 +20,16 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/recipe/create" component={FormCreateRecipe} />
-        <Route exact path="/recipe/:_id" component={oneRecipe} />
+        <Route exact path="/recipe/:_id" component={OneRecipe} />
         <Route exact path="/recipe/edit/:_id" component={FormEditRecipe} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/myweek" component={MyWeek} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/profile/edit" component={FormEditUser} />
-
       </Switch>
     </div>
   );
 }
 
 export default App;
-
-// class App extends React.Component {
-//   state = {
-//     user: null,
-//     isLoggedIn: false,
-//     isLoading: true,
-//   };
-
-// handleLogin = (user) => {
-//   this.setState({ user: user, isLoggedIn: true }, () => {
-//     this.props.history.push("/profile");
-//   });
-// };
-
-// componentDidMount() {
-//   axios
-//     .getLoggedInUser()
-//     .then((response) => {
-//       this.setState({
-//         isLoading: false,
-//         user: response.data,
-//         isLoggedIn: true,
-//       });
-//          console.log(response.data, "in component did Mount");
-//     })
-//     .catch((error) => {
-//       this.setState({ isLoading: false });
-//       console.dir(error);
-//     });
-// }
-
-// handleLogout = () => {
-//   this.setState({ user: null, isLoggedIn: false });
-// };
-
-// render() {
-//   console.log(this.state, "this is the state");
-
-//   return (
-//     <div className="App">
-//       <NavMain />
-//       <Switch>
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/recipe/:_id" component={oneRecipe} />
-//         <Route exact path="/signin" component={Signin} />
-//         <Route exact path="/signup" component={Signup} />
-//         <ProtectedRoute exact path="/profile" component={Profile} />
-//       </Switch>
-//     </div>
-//   );
-// }
-// }
-
-
-// export default withRouter(App);
