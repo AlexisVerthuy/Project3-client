@@ -11,12 +11,12 @@ class RecipeCard extends React.Component {
         <div>
           <p className="card-title">{this.props.recipe.title}</p>
           <img
-            style={{ width: "300px", height: "200" }}
+            style={{ width: "250px", height: "200px" }}
             className="image-card"
             src={this.props.recipe.picture}
             alt=""
           />
-          <Link to={`/recipe/${this.props.recipe._id}`}>See more !</Link>
+          <button className="btn"><Link to={`/recipe/${this.props.recipe._id}`}>See more !</Link></button>
         </div>
       </div>
     );

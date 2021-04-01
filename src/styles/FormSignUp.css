@@ -43,6 +43,7 @@
 .Form-edit input[type="email"],
 .Form-edit input[type="password"],
 .Form-edit input[type="file"]
+.Form-edit input[type="number"]
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -90,10 +91,3 @@ p {
   text-align: center;
   margin-bottom: 2%;
 }
-
-/* h1 {
-  background-image: URL("https://gymplace.fr/wp-content/uploads/2019/08/Fruits-et-l%C3%A9gumes-bandeau.jpg");
-  background-size:cover;
-  color: white;
-  height: 100px;
-} */

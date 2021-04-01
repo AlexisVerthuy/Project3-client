@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
-import "../styles/global.css";
+// import "../styles/global.css";
+import "../styles/AddRecipe.css"
 import { Link } from "react-router-dom";
 import FormInsertNewIngredient from '../components/FormInsertNewIngredient';
 
@@ -91,9 +92,48 @@ class FormEditRecipe extends React.Component {
     render() {
         return (
             <div>
-                <h1>Edit your {this.state.title} recipe !</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
+            <div className="container-add">
+                <form className = "add-recipe" onSubmit={this.handleSubmit}>
+                <h2>{this.state.title}</h2>
+                <div className="blocs">
+                <div className="ingredients-bloc"> 
+                    <p><b>Ingredients</b></p>
+                    {this.state.ingredients.map((ingredient, index) => (
+                        <div  key={ingredient._id}>
+                            
+                            <div>
+                                <label htmlFor="quantity">Quantity</label>
+                                <input
+                                    id={index}
+                                    onChange={this.handleIngredientChange}
+                                    name="quantity"
+                                    type="number"
+                                    value={this.state.ingredients[index].quantity}
+                                />
+                                <label htmlFor="unit">Unit</label>
+                                <input
+                                    id={index}
+                                    onChange={this.handleIngredientChange}
+                                    name="unit"
+                                    type="text"
+                                    value={this.state.ingredients[index].unit}
+                                />
+                                <label htmlFor="value">Value</label>
+                                <input
+                                    id={index}
+                                    onChange={this.handleIngredientChange}
+                                    name="value"
+                                    type="text"
+                                    value={this.state.ingredients[index].value}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                <FormInsertNewIngredient  handleClick={this.AddNewIngredient}/>
+                </div>
+            <div className="instructions-bloc">
+                <div className= "recipe-intro">
+                    <div> 
                         <label htmlFor="title">Title</label>
                         <input
                             onChange={this.handleChange}
@@ -128,49 +168,15 @@ class FormEditRecipe extends React.Component {
                             value={this.state.duration}
                         />
                     </div>
-                    <p>Ingredients:</p>
-                    {this.state.ingredients.map((ingredient, index) => (
-                        <div key={ingredient._id}>
-                            
-                            <div>
-                                <label htmlFor="quantity">Quantity</label>
-                                <input
-                                    id={index}
-                                    onChange={this.handleIngredientChange}
-                                    name="quantity"
-                                    type="number"
-                                    value={this.state.ingredients[index].quantity}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="unit">Unit</label>
-                                <input
-                                    id={index}
-                                    onChange={this.handleIngredientChange}
-                                    name="unit"
-                                    type="text"
-                                    value={this.state.ingredients[index].unit}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="value">Value</label>
-                                <input
-                                    id={index}
-                                    onChange={this.handleIngredientChange}
-                                    name="value"
-                                    type="text"
-                                    value={this.state.ingredients[index].value}
-                                />
-                            </div>
-                        </div>
-                    ))}
-                    <FormInsertNewIngredient  handleClick={this.AddNewIngredient}/>
+                </div>
+
+                <div className="recipe-instructions"> 
                     <div>
-                        <label htmlFor="instructions">instructions</label>
+                        <label htmlFor="instructions">Instructions</label>
                         <input className="input_instructions"
                             onChange={this.handleChange}
                             name="instructions"
-                            type="text"
+                            type="textarea"
                             value={this.state.instructions}
                         />
                     </div>
@@ -192,9 +198,13 @@ class FormEditRecipe extends React.Component {
                             value={this.state.type}
                         />
                     </div>
-                    <button>Submit</button>
+                    <button className="btn">Submit</button>
+                    <Link to={`/recipe/${this.props.match.params._id}`}><button className="btn">Nothing to edit</button></Link>
+                </div>
+            </div>
+            </div>
                 </form>
-                <Link to={`/recipe/${this.props.match.params._id}`}><button>Nothing to edit</button></Link>
+            </div>
             </div>
         );
     }

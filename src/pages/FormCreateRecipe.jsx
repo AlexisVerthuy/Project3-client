@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
 import FormInsertNewIngredient from '../components/FormInsertNewIngredient';
+import "./../styles/AddRecipe.css"
+
 
 class FormCreateRecipe extends Component {
     state = {
@@ -49,8 +51,11 @@ class FormCreateRecipe extends Component {
 
     render() {
         return (
-            <form method="" onSubmit={this.handleSubmit}>
-                <div>
+            <div>
+                <h2>👩🏽‍🍳 Add a new recipe!</h2>
+            <form className="Form-newRecipe" method="" onSubmit={this.handleSubmit}>
+                <ul>
+                    <li>
                     <label htmlFor="title">Title</label>
                     <input
                         id="title"
@@ -59,26 +64,26 @@ class FormCreateRecipe extends Component {
                         name="title"
                         type="text"
                     />
-                </div>
-                <div>
+                    </li>
+                    <li>
                     <label htmlFor="serving">Serving</label>
                     <input
                         id="serving"
                         onChange={this.handleChange}
                         value={this.state.serving}
                         name="serving"
-                        type="serving"
+                        type="text"
                     />
-                </div>
-                <div>
+                    </li>
+                    <li>
                     <label htmlFor="level">Level</label>
                     <select onChange={this.handleChange} value={this.state.level} name="level" id="level">
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
                         <option value="Difficult">Difficult</option>
-                    </select>
-                </div>
-                <div>
+                    </select> 
+                    </li>
+                    <li>
                     <label htmlFor="duration">Duration</label>
                     <input
                         id="duration"
@@ -86,9 +91,9 @@ class FormCreateRecipe extends Component {
                         name="duration"
                         type="number"
                         value={this.state.duration}
-                    />
-                </div>
-                <div>
+                    /> 
+                    </li>
+                    <li>
                     <label htmlFor="">Ingredients:</label>
                     <div>
                         {this.state.ingredients.map((ingredient) => (
@@ -100,8 +105,8 @@ class FormCreateRecipe extends Component {
                         ))}
                     </div>
                     <FormInsertNewIngredient handleClick={this.AddNewIngredient} />
-                </div>
-                <div>
+                    </li>
+                    <li>
                     <label htmlFor="">instructions</label>
                     <input className="input_instructions"
                         onChange={this.handleChange}
@@ -109,8 +114,8 @@ class FormCreateRecipe extends Component {
                         type="text"
                         value={this.state.instructions}
                     />
-                </div>
-                <div>
+                    </li>
+                    <li>
                     <label htmlFor="">Creator</label>
                     <input
                         onChange={this.handleChange}
@@ -118,8 +123,8 @@ class FormCreateRecipe extends Component {
                         type="text"
                         value={this.state.creator}
                     />
-                </div>
-                <div>
+                    </li>
+                    <li>
                     <label htmlFor="">type</label>
                     <input
                         onChange={this.handleChange}
@@ -127,9 +132,13 @@ class FormCreateRecipe extends Component {
                         type="text"
                         value={this.state.type}
                     />
-                </div>
-                <button>Submit</button>
+                    </li>
+                    <li>
+                        <button className="btn">Submit</button>
+                    </li>
+                </ul>
             </form>
+            </div>
         );
     }
 }

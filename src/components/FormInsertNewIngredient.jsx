@@ -1,5 +1,5 @@
 import React from "react";
-import "./../styles/global.css";
+import "./../styles/FormSignUp.css"
 
 class FormInsertNewIngredient extends React.Component {
   state = {
@@ -25,35 +25,48 @@ class FormInsertNewIngredient extends React.Component {
 
   render() {
     return (
-      <div>
-        <button type="button" onClick={this.toggleForm}> Add More ingredients</button>
+      <div className="Form-add">
+        <button className="btn" type="button" onClick={this.toggleForm}> Add More ingredients</button>
         {this.state.isDisplayed && (
           <div>
-            <p>Quantity</p>
-            <input
-              onChange={this.handleChange}
-              type="number"
-              name="quantity"
-            />
-            <p>Unit</p>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="unit"
-            />
-            <p>Value</p>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="value"
-            />
-            <button type="button" onClick={() =>
-              this.props.handleClick({
-                quantity: this.state.quantity,
-                unit: this.state.unit,
-                value: this.state.value
-              })
-              }>Submit</button>
+            <ul>
+              <li>
+              <label>Quantity</label>
+                <input
+                  onChange={this.handleChange}
+                  type="text"
+                  name="quantity"
+                />
+                <span>Enter the quantity here</span>
+              </li>
+              <li>
+              <label>Unit</label>
+                <input
+                  onChange={this.handleChange}
+                  type="text"
+                  name="unit"
+                />
+                <span>Enter the unit here</span>
+              </li>
+              <li>
+              <label>Value</label>
+                <input
+                  onChange={this.handleChange}
+                  type="text"
+                  name="value"
+                />
+                <span>Enter the value here</span>
+              </li>
+              <li>
+                <button className="btn" type="button" onClick={() =>
+                this.props.handleClick({
+                  quantity: this.state.quantity,
+                  unit: this.state.unit,
+                  value: this.state.value
+                })
+                }>Submit</button>
+              </li>
+            </ul>
           </div>
         )}
       </div>

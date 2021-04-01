@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
-import "./../../styles/Form.css"
+import "./../../styles/FormSignUp.css"
 
 class FormSignin extends Component {
   state = {

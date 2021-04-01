@@ -47,19 +47,16 @@ class Profile extends React.Component {
 
   return (
     <div>
-      <h1>Welcome { this.props.context.user.firstName }</h1>
-        <div className="profile">
+    {/* <h1>Welcome { this.props.context.user.firstName }</h1> */}
+    <div className="container-profile"> 
           <div className="bloc1"> 
           <img className="profile-pic" src={ this.props.context.user.avatar } alt="Profile picture"/>
-            <h2>{ this.props.context.user.firstName } { this.props.context.user.LastName }</h2>
-            <Link to={`/profile/edit`}><button className="btn">Update my account</button></Link><br/>
-            <button className="btn" onClick={this.handleDelete}>Delete my account</button>
           </div>
 
-          <div className="bloc2">
-          <p>What I like!</p>
-          <button className="btn"><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></button>
-          </div>
+          <h4>{ this.props.context.user.firstName } { this.props.context.user.LastName }</h4>
+            <Link to={`/profile/edit`}><button className="btn">Update my account</button></Link><br/>
+            <button className="btn" onClick={this.handleDelete}>Delete my account</button><br/>
+            <button className="btn"><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></button>
         </div>
     </div>
   );

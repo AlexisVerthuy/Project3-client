@@ -46,10 +46,10 @@ class Home extends React.Component {
         />
         <div>
           <br/>
-        <b><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></b>
+        <button className="btn" id="add-home"><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></button>
         </div>
 
-        <div className="searchBar">
+        <div className="cards">
         {this.state.recipes
 
           .filter((recipe) =>

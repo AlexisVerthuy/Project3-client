@@ -1,0 +1,56 @@
+label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 400px;
+  }
+
+  textarea {
+    height: 100px;
+    width: 70%;
+  }
+
+.blocs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+}
+
+.btn {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.recipe-intro {
+    display: block;
+    margin-bottom: 2%;
+}
+
+.ingredients-bloc {
+    border-style: solid;
+    border-color: #D5CFCF;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    width: 40%;
+}
+
+.Form-add {
+  margin: 2% 0% 2% 10%;
+}
+
+.input_instructions {
+  width: 500px;
+  height: 150px;
+}
+
+.instruction-bloc {
+  width: 500px;
+}

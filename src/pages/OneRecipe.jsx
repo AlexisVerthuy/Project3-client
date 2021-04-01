@@ -48,33 +48,38 @@ class OneRecipe extends React.Component {
 
     return (
       <div className="container">
-        <h1>{this.state.recipe.title}</h1>
+        <h2>{this.state.recipe.title}</h2>
 
-        <div className="Recipe-intro">
-          <div>
-            <p>Level: {this.state.recipe.level}</p>
-            <p>Time: {this.state.recipe.duration}min</p>
-
-            <button>Add to my week</button>
+        <div className="recipe-intro">
+          <div className="level">
+            <p><b>Level</b>: {this.state.recipe.level}</p>
+            <p><b>Time</b>: {this.state.recipe.duration}min</p>
+            <button className="btn">Add to my week</button>
           </div>
 
           <div>
             <img className="recipe-img" src={this.state.recipe.picture} alt="dish" />
           </div>
         </div>
-        <div className="Recipe-content">
-          <div>
-            <p>{this.state.recipe.instructions}</p>
-          </div>
 
-          <div>
+        <div className="recipe-content">
+          <div className="ingredients-box">
             {this.state.recipe.ingredients.map((ingredient) => (
               <div key={ingredient._id}>
-                <p>
+                <ul>
+                <li>
                   {ingredient.quantity} {ingredient.unit} {ingredient.value}
-                </p>
+                </li>
+                </ul>
               </div>
             ))}
+          </div>
+          <div className="instructions-box">
+          <ul>
+            <li>
+              {this.state.recipe.instructions}
+            </li>
+          </ul>
           </div>
         </div>
         <div>
