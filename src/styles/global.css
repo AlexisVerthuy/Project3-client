@@ -32,8 +32,8 @@ ul {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(4,auto);
-  grid-row-gap:40px;
+  grid-template-columns: repeat(4, auto);
+  grid-row-gap: 40px;
   width: 1100px;
   margin: 40px auto 120px;
   background-color: #fff;
@@ -41,9 +41,9 @@ ul {
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.075);
   text-align: center;
 }
 
@@ -73,7 +73,7 @@ h1 {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color: #C70039;
+  color: #c70039;
 }
 
 h2 {
@@ -81,7 +81,7 @@ h2 {
   text-align: center;
   font-size: 35px;
   font-weight: bold;
-  color: #C70039;
+  color: #c70039;
 }
 
 h3 {
@@ -100,47 +100,68 @@ h3 {
 
 .input_instructions {
   height: 80px;
-  width: 1000px
+  width: 1000px;
 }
 
 .btn {
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:2em;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
   box-sizing: border-box;
-  text-decoration:none;
-  font-weight:300;
-  color:#FFFFFF;
-  background-color:#C70039;
-  text-align:center;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #c70039;
+  text-align: center;
   transition: all 0.2s;
 }
-.btn:hover{
-  background-color:#3EBE21;
+.btn:hover {
+  background-color: #3ebe21;
 }
 
 .btn-more {
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:2em;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
   box-sizing: border-box;
-  text-decoration:none;
-  font-weight:300;
-  color:#FFFFFF;
-  background-color:lightblue;
-  text-align:center;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: lightblue;
+  text-align: center;
   transition: all 0.2s;
 }
-.btn-more:hover{
-  background-color:lightpink;
+.btn-more:hover {
+  background-color: lightpink;
 }
 
 .weekBtn {
-  color:#C70039;
+  color: #c70039;
   font-weight: bold;
-  background-color:#FFFFFF;
-  text-align:center;
+  background-color: #ffffff;
+  text-align: center;
   border: none;
+}
+.weekMeal {
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.weekMeal h3 {
+  margin-left: 100px;
+  margin-right: 50px;
+  color: #c70039;
+  text-decoration: transparent;
+  width: 200px;
+}
+.imageWeekMeal {
+  border-radius: 20%;
+  margin: 50px;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
 }

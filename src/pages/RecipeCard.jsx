@@ -49,7 +49,9 @@ class RecipeCard extends React.Component {
             src={this.props.recipe.picture}
             alt=""
           />
-          <button className="btn"><Link to={`/recipe/${this.props.recipe._id}`}>See more !</Link></button>
+          <button className="btn">
+            <Link to={`/recipe/${this.props.recipe._id}`}>See more !</Link>
+          </button>
           <button className="btn" type="button" onClick={this.toggleList}>
             Add to my week
           </button>
@@ -71,9 +73,7 @@ class RecipeCard extends React.Component {
                   <option value="saturday">Saturday</option>
                   <option value="sunday">Sunday</option>
                 </select>
-                <button className="weekBtn"
-                  onClick={this.handleAddMealPlan}
-                >
+                <button className="weekBtn" onClick={this.handleAddMealPlan}>
                   Add
                 </button>
               </div>

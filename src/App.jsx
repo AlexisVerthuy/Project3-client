@@ -18,9 +18,17 @@ function App() {
       <NavMain />
       <Switch>
         <ProtectedRoute exact path="/" component={Home} />
-        <ProtectedRoute exact path="/recipe/create" component={FormCreateRecipe} />
+        <ProtectedRoute
+          exact
+          path="/recipe/create"
+          component={FormCreateRecipe}
+        />
         <ProtectedRoute exact path="/recipe/:_id" component={OneRecipe} />
-        <ProtectedRoute exact path="/recipe/edit/:_id" component={FormEditRecipe} />
+        <ProtectedRoute
+          exact
+          path="/recipe/edit/:_id"
+          component={FormEditRecipe}
+        />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/myweek" component={MyWeek} />

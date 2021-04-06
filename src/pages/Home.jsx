@@ -43,23 +43,25 @@ class Home extends React.Component {
           searchValue={this.state.searchValue}
         />
         <div>
-          <br/>
-        <button className="btn" id="add-home"><Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link></button>
+          <br />
+          <button className="btn" id="add-home">
+            <Link to={`/recipe/create`}> 👩🏽‍🍳 Add a new recipe !</Link>
+          </button>
         </div>
 
         <div className="cards">
-        {this.state.recipes
+          {this.state.recipes
 
-          .filter((recipe) =>
-            recipe.title
-              .toLowerCase()
-              .includes(this.state.searchValue.toLowerCase())
-          )
+            .filter((recipe) =>
+              recipe.title
+                .toLowerCase()
+                .includes(this.state.searchValue.toLowerCase())
+            )
 
-          .map((recipe, index) => {
-            return <RecipeCard key={index} recipe={recipe} />;
-          })}
-          </div>
+            .map((recipe, index) => {
+              return <RecipeCard key={index} recipe={recipe} />;
+            })}
+        </div>
       </div>
     );
   }
